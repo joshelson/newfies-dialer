@@ -109,12 +109,14 @@ case $DIST in
 esac
 
 #Install Freeswitch
-cd /usr/src/
+# cd /usr/src/
 # wget --no-check-certificate  https://raw.github.com/Star2Billing/newfies-dialer/$BRANCH/install/install-freeswitch.sh -O install-freeswitch.sh
+
 bash install-freeswitch.sh
 /etc/init.d/freeswitch start
 
 #Install Newfies
-cd /usr/src/
+# cd /usr/src/
 # wget --no-check-certificate https://raw.github.com/Star2Billing/newfies-dialer/$BRANCH/install/install-newfies.sh -O install-newfies.sh
+
 bash install-newfies.sh

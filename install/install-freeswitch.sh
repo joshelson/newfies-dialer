@@ -97,6 +97,7 @@ func_install_deps() {
             yum -y update
             yum -y install autoconf automake bzip2 cpio curl curl-devel curl-devel expat-devel fileutils gcc-c++ gettext-devel gnutls-devel libjpeg-devel libogg-devel libtiff-devel libtool libvorbis-devel make ncurses-devel nmap openssl openssl-devel openssl-devel perl patch unixODBC unixODBC-devel unzip wget zip zlib zlib-devel
             yum -y install git
+            yum -y install pcre-devel ldns-devel libedit-devel
             yum -y install --enablerepo=epel flite flite-devel
         ;;
     esac

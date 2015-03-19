@@ -37,7 +37,7 @@ func_identify_os() {
         fi
     elif [ -f /etc/redhat-release ] ; then
         DIST='CENTOS'
-        if [ "$(awk '{print $3}' /etc/redhat-release)" != "6.2" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.3" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.4" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.5" ]; then
+        if [ "$(awk '{print $3}' /etc/redhat-release)" != "6.2" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.3" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.4" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.5" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.2" ] ; then
             echo $SCRIPT_NOTICE
             exit 255
         fi
@@ -110,11 +110,11 @@ esac
 
 #Install Freeswitch
 cd /usr/src/
-wget --no-check-certificate  https://raw.github.com/Star2Billing/newfies-dialer/$BRANCH/install/install-freeswitch.sh -O install-freeswitch.sh
+# wget --no-check-certificate  https://raw.github.com/Star2Billing/newfies-dialer/$BRANCH/install/install-freeswitch.sh -O install-freeswitch.sh
 bash install-freeswitch.sh
 /etc/init.d/freeswitch start
 
 #Install Newfies
 cd /usr/src/
-wget --no-check-certificate https://raw.github.com/Star2Billing/newfies-dialer/$BRANCH/install/install-newfies.sh -O install-newfies.sh
+# wget --no-check-certificate https://raw.github.com/Star2Billing/newfies-dialer/$BRANCH/install/install-newfies.sh -O install-newfies.sh
 bash install-newfies.sh

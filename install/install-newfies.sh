@@ -28,8 +28,9 @@ BRANCH='master'
 
 #Get Scripts dependencies
 cd /usr/src/
-rm newfies-dialer-functions.sh
-wget --no-check-certificate https://raw.github.com/Star2Billing/newfies-dialer/$BRANCH/install/newfies-dialer-functions.sh -O newfies-dialer-functions.sh
+#TODO: allow this configurable
+#rm newfies-dialer-functions.sh
+#wget --no-check-certificate https://raw.github.com/Star2Billing/newfies-dialer/$BRANCH/install/newfies-dialer-functions.sh -O newfies-dialer-functions.sh
 #Include cdr-stats install functions
 source newfies-dialer-functions.sh
 

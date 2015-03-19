@@ -59,7 +59,7 @@ func_identify_os() {
         fi
     elif [ -f /etc/redhat-release ] ; then
         DIST='CENTOS'
-        if [ "$(awk '{print $3}' /etc/redhat-release)" != "6.2" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.3" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.4" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.5" ]; then
+        if [ "$(awk '{print $3}' /etc/redhat-release)" != "6.2" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.3" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.4" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.5" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.6" ]; then
             echo $SCRIPT_NOTICE
             exit 255
         fi
@@ -903,11 +903,10 @@ func_install_rabbitmq() {
             /etc/init.d/rabbitmq-server start
         ;;
         'CENTOS')
-            #TODO: Not supported
-            echo ""
-            echo "RabbitMQ is not supported on CentOS, fork and patch away please"
-            echo ""
-            exit 1
+	    yum install -y rabbitmq-server
+            /usr/sbin/rabbitmq-plugins enable rabbitmq_management
+	    chkconfig --level=345 rabbitmq-server on
+	    /etc/init.d/rabbitmq-server start
         ;;
     esac
 
